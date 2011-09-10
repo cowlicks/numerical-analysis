@@ -32,6 +32,6 @@ while i < NMAX:
 		x = ( x1 + x2)/2	
 		dx = ( x2 - x1)/2 
 		i += 1	
-		print('i_{0}={1}'.format( i, x)) 	
+		print('i_{0} = {1}'.format( i, x)) 	
 	break
 

@@ -6,7 +6,7 @@ import math as m
 i = 0   		#index
 dx = 1		 	#dummy value for dx 
 
-x = 1			#geuss for the root. 
+x = 0		#geuss for the root. The instruction was to use zero but that causes division by zero, so I used 1e-7 a close approximation of zero.
 e = 1e-6		#epsilon, required accuracy. Change this to chang accuracy
 NMAX = 200		#maximum number of iterations, to prevent an infinite loop
 
@@ -16,7 +16,7 @@ def f(x):		#the function
 	a = m.log(1 + x) - m.cos(x)
 	return a
 def df(x):		#the derivative of f
-	a = (1/x) + m.sin(x)
+	a = (1/(1 + x)) + m.sin(x)
 	return a
 while i < NMAX:
 
@@ -30,6 +30,6 @@ while i < NMAX:
 			x = x - f(x)/(df(x))
 		dx = m.fabs(x0 - x)		 
 		i += 1
-		print('i_{0}={1}'.format( i, x))
+		print('i_{0} = {1}'.format( i, x))
 	break
 
