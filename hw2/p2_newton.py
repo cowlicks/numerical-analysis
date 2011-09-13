@@ -1,12 +1,10 @@
 #! /usr/bin/python3
 
-
-
 import math as m 
 i = 0   		#index
 dx = 1		 	#dummy value for dx 
 
-x = 0		#geuss for the root. The instruction was to use zero but that causes division by zero, so I used 1e-7 a close approximation of zero.
+x = 0			#geuss for the root.
 e = 1e-6		#epsilon, required accuracy. Change this to chang accuracy
 NMAX = 200		#maximum number of iterations, to prevent an infinite loop
 

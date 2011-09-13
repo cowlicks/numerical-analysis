@@ -1,0 +1,109 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{listings}
+\lstset{breaklines=true}
+\title{Numerical Analysis Homework \#2}
+\author{Blake Griffith} 
+\begin{document}
+\maketitle
+\begin{section}{Excercises}
+	\begin{itemize}
+		\item{sec 2.2 1(a)}\\
+			I wrote a short python script to do this it is pasted below with the output.
+			\lstinputlisting{ex1a_falseposition.py}
+			and the output is:
+			\begin{lstlisting}
+$ python3 ex1a_falseposition.py 
+p_0 = 0.8674193917610414 and the interval (0, 1)
+p_1 = 0.8842599009093866 and the interval (0.8674193917610414, 1)
+p_2 = 0.8845069769792577 and the interval (0.8842599009093866, 1)
+p_3 = 0.8845105633505176 and the interval (0.8845069769792577, 1)
+p_4 = 0.8845106153993479 and the interval (0.8845105633505176, 1)
+p_5 = 0.8845106161547283 and the interval (0.8845106153993479, 1)
+
+			\end{lstlisting}
+
+		\item{sec 2.4 3 (only part (1) and (2))}\\
+			Again, I did this with another python script, it is copied below with the output.
+			\lstinputlisting{ex3_newton.py}
+			and the output is:
+			\begin{lstlisting}
+$ python3 ex3_newton.py 
+part (1)
+i_1 = 3.0
+i_2 = 2.2
+i_3 = 1.8301507537688444
+i_4 = 1.7377954531428215
+i_5 = 1.7320722915449542
+
+part (2)
+|pn - p(n-1)| = 2.0
+|p(n-1) - p| = 0.7320508075688772
+|pn - p| = 1.2679491924311228
+
+|pn - p(n-1)| = 0.7999999999999998
+|p(n-1) - p| = 1.2679491924311228
+|pn - p| = 0.467949192431123
+
+|pn - p(n-1)| = 0.3698492462311558
+|p(n-1) - p| = 0.467949192431123
+|pn - p| = 0.0980999461999672
+
+|pn - p(n-1)| = 0.09235530062602293
+|p(n-1) - p| = 0.0980999461999672
+|pn - p| = 0.005744645573944274
+
+|pn - p(n-1)| = 0.005723161597867232
+|p(n-1) - p| = 0.005744645573944274
+|pn - p| = 2.1483976077041333e-05
+\end{lstlisting}		
+\item{Sec 2.4: 7}\\
+	The given function is \(f(x) = x^{2} - a \) so \( f'(x) = 2x\) and according to Newton's method we can say \( g(x) = x - \frac{f(x)}{f'(x)}\)\\
+	Plugging in for \(f(x)\) and \(f'(x)\)\\
+	\( g(x) = x - (x^{2} - a)/(2x) = x - x/2 -a/2x = (x - a/x)/2 \)\\
+	QED
+	\end{itemize}
+\end{section}
+\begin{section}{Programming assignments}
+	\begin{enumerate}
+		\item
+		This was done in python the code is attached below.\\
+		\lstinputlisting{p1_bisection.py}
+		And the output is:\\
+		\begin{lstlisting}
+$ python3 p1_bisection.py 
+i_1 = 0.75
+i_2 = 0.875
+i_3 = 0.9375
+i_4 = 0.90625
+i_5 = 0.890625
+i_6 = 0.8828125
+i_7 = 0.88671875
+i_8 = 0.884765625
+i_9 = 0.8837890625
+i_10 = 0.88427734375
+i_11 = 0.884521484375
+i_12 = 0.8843994140625
+i_13 = 0.88446044921875
+i_14 = 0.884490966796875
+i_15 = 0.8845062255859375
+i_16 = 0.8845138549804688
+i_17 = 0.8845100402832031
+i_18 = 0.8845119476318359
+i_19 = 0.8845109939575195
+\end{lstlisting}
+
+\item
+	\lstinputlisting{p2_newton.py}
+	and the output
+	\begin{lstlisting}
+$ python3 p2_newton.py 
+i_1 = 1.0
+i_2 = 0.8860617363903003
+i_3 = 0.8845109403287758
+i_4 = 0.8845106161658667
+\end{lstlisting}
+\end{enumerate}
+\end{section}
+\end{document}
+

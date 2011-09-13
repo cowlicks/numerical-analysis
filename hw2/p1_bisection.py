@@ -1,7 +1,5 @@
 #! /usr/bin/python3
 
-
-
 import math as m 
 x1 = 0  		#left side of interval
 x2 = 1  		#right side of interval
