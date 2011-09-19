@@ -28,14 +28,14 @@ while j < jmax:					#j indexes the columns
 	j += 1
 	h += 1
 	i += 1
-print(a, h, i, j, k)
-
-x_4 = a[i, j + 1] 
-while i < 0:
-
-
-
-
-
-
+h = 2
+while j >= 0:
+	k = h
+	while k >= 0:
+		a[k] = a[k] - a[k,j]*a[i]
+		k -= 1
+	i -= 1
+	j -= 1
+	h -= 1
+print(a[:,4])
 
