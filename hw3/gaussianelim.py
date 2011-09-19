@@ -1,8 +1,6 @@
 #! /usr/bin/python
 #implementation of a gaussian elimination algorithm
-#TODO rewrite to rearrange rows from greatest to largest when shifting to the next column
 from numpy import *
-from fractions import *
 
 h = 1 		#h indexes the row being manipulated
 i = 0 		#i indexes the row of the pivot
