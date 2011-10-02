@@ -1,7 +1,5 @@
 #! /usr/bin/python3
 
-
-
 import math as m 
 i = 0   		#index
 x = 1			#geuss for the root.
@@ -38,5 +36,4 @@ while i < NMAX:
 	c = m.fabs(x - p)
 
 	print('|pn - p(n-1)| = {0}\n|p(n-1) - p| = {1}\n|pn - p| = {2}\n'.format(a, b, c))
-
 
