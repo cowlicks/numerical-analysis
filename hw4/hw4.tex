@@ -1,13 +1,15 @@
 \documentclass[a4paper]{article}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \title{Numerical Analysis Homework 4}
 \author{Blake Griffith}
 \begin{document}
 \maketitle
 \begin{enumerate}
-	\item
+	\item{3.5.3}\\
+		
 		We know \( \mathbf{A} = \mathbf{A}^{-1}\) if \( \mathbf{A}^{-1} \mathbf{A} = \mathbf{A} \mathbf{A}^{-1} = \mathbf{I_n} \) where \( I_n \) is the \( n \times n \) identity matrix.\\
-		\begin{center}
 		So if we let 
 		\( \mathbf{A} = 
 		\left( \begin{array}{ccccc}
@@ -24,8 +26,38 @@
 			0 & m_{3,2} & 1 & 0 & 0 \\
 			0 & m_{4,2} & 0 & 1 & 0 \\
 			0 & m_{5,2} & 0 & 0 & 1 
-		\end{array} \right) \) 
-		\end{center}
+		\end{array} \right) \) \\
+		we can see that \( \mathbf{A A}^{-1} =
+		\left( \begin{array}{ccccc}
+			1 & 0 & 0 & 0 & 0 \\
+			0 & 1 & 0 & 0 & 0 \\
+			0 & m_{3,2}-m_{3,2} & 1 & 0 & 0 \\
+			0 & m_{4,2} -m_{4,2} & 0 & 1 & 0 \\
+			0 & m_{5,2} -m_{5,2} & 0 & 0 & 1 
+		\end{array} \right) = \left( \begin{array}{ccccc}
+				1 & 0 & 0 & 0 & 0 \\
+			0 & 1 & 0 & 0 & 0 \\
+			0 & 0 & 1 & 0 & 0 \\
+			0 & 0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 0 & 1
+		\end{array} \right) \) \\
+		So \( \mathbf{AA}^{-1} = \mathbf{I}_{n \times n} \)\\
+		\( \therefore \mathbf{A} = \mathbf{A}^{-1}\)\\
+		qed
+
+	\item{3.5.4.a}\\
+
+		\(L_1 = \left[ \begin{array}{cc}
+			1 & 0 \\
+			3 & 1 
+		\end{array} \right] \)\\
+		
+		\( U_1 = \right[ \begin{array}{cc}
+			1 & 2 \\
+
+
+
+
 
 
 \end{enumerate}
