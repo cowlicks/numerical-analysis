@@ -19,12 +19,12 @@ def D1(h):
 #lower order formulas
 
 def D2(h):
-	a = (4/3)*(D1(h/2.) - D(h))
+	a = (1/3)*(4*D1(h/2.) - D1(h))
 	return(a)
 def D3(h):
-	a = (8/7)*(D2(h/2.) - D2(h))
+	a = (1/7.)*(8*D2(h/2.) - D2(h))
 	return(a)
 def D4(h):
-	a = (16/15)*(D3(h/2.) - D3(h))
+	a = (1/15.)*(16*D3(h/2.) - D3(h))
 	return(a)
 
