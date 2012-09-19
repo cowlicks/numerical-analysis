@@ -1,35 +1,38 @@
-#! /usr/bin/python3
+'''
+    1. Implement the bisection method in matlab. Use it to find the root of
+            f(x) = ln(1 + x) - cos(x)
+        in (0, 1). Start with a1 = 0 and b1 = 1. For the stopping criteria, use
+            |bn - an|/2 <= e
+        with e = 1e-6 . Print the values of pi for i = 1,...,n.
+'''
+import math
 
-import math as m 
-x1 = 0  		#left side of interval
-x2 = 1  		#right side of interval
+# Define our function.
+def f(x):
+    return math.log(1 + x) - math.cos(x)
 
-i = 0   		#index
-dx =(x2 - x1)/2 	#avg distance from the root
+# Initial values & stopping criteria.
+a, b, e = 0., 1., 1e-6
 
-x = (x1 + x2)/2		#geuss for the root. 
-e = 1e-6		#epsilon, required accuracy. Change this to chang accuracy
-NMAX = 200		#maximum number of iterations, to prevent an infinite loop
+# Iteration counter.
+count = 0
 
-###### Functions
+# Algorithim
+while abs(a - b)/2. > e:
+    # Get p and print it.
+    p = (a + b)/2.
+    print "p{} = {}".format(count, p)
+    
+    # Check for soln.
+    if f(p) == 0:
+        print "The root is x = {}".format(p)
 
-def f(x):		#the function
-	a = m.log(1 + x) - m.cos(x)
-	return a
-while i < NMAX:
+    elif f(p) * f(a) < 0.:
+        b = p
 
-	while dx  > e:		# while the avg distance from the root is greater than the required accuracy
-		if f(x) == 0:		#check if the midpoint is the root
-			print(x)
-			break
-#check if x is greater than or less than the root. f(x) is increasing, so if f(midpoint) is greater than zero make the midpoint the new upper bound and vice versa.
-		elif f(x) > 0:	
-			x2 = x
-		else:
-			x1 = x
-		x = ( x1 + x2)/2	
-		dx = ( x2 - x1)/2 
-		i += 1	
-		print('i_{0} = {1}'.format( i, x)) 	
-	break
+    elif f(p) * f(b) < 0.:
+        a = p
+
+    # Increment counter.
+    count += 1
 
