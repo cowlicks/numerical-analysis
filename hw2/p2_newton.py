@@ -38,3 +38,4 @@ while True:
         break
     else:
         p0 = p1
+    count +=1
