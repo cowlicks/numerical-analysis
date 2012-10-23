@@ -1,8 +1,6 @@
 from math import log, factorial
 import numpy as np
 
-def div_dif(f1, f2, x1, x2):
-    return (float(f2 - f1)/(x2 - x1))
 
 # Calculate the linear interpolant at a point x. For Bradie 5.5.1
 def inter(x, x0, x1, f0, f1):
@@ -10,6 +8,11 @@ def inter(x, x0, x1, f0, f1):
     b0 = float(f1 - f0)/(x1 - x0)
     return a0 + b0*(x - x0)
 
+# Calculates a divided difference.
+def div_dif(f1, f2, x1, x2):
+        return (float(f2 - f1)/(x2 - x1))
+
+# the interpolating polynomial used for Bradie 5.7.4
 def p(x):
     a = x - 1
     b = (2*log(2) - 1)*a*a
@@ -26,6 +29,13 @@ def er(x):
     c = 1.5
     return (24./(x**5))*(1./(factorial(6)))*a*a*b*b*c*c
 #    return (x-1) + (2*log(2)-1)*(x-1)**2 + (-3*log(2)+2)*(x-1)**2 * (x-2) + (.75*log(3) +log(2) - .75)*(x-1)**2 * (x-2)**2 + (-2*log(3) + log(2) + 1.5)*(x-1)**2 * (x-2)**2 * (x-3)
+
+def er2(x):
+    a = (-.3 + 1)**2
+    b = (-.3)**2
+    c = (-.3 -1)**2
+    f = -11250000.*(-218750 *x**6 + 43750*x**4 - 1050.*x*x + 2.)/((1. + 25*x*x)**7)
+    return f*a*b*c/720
 
 def div_dif_table(xlist, flist, dflist):
     zlist = []
