@@ -1,0 +1,41 @@
+import math
+'''
+For solving Bradie problem 6.2.4
+'''
+x0 = 2
+
+def app(h):
+    return (math.log(x0 + 2*h) - math.log(x0 - h))/(3*h)
+
+A = []
+for i in range(0, 10):
+    A.append(10**(-i))
+
+for i in A:
+    print 'err = {} and h = {}'.format(abs((1./2) -  app(i)), i)
+    print ''
+
+
+Output: 
+
+
+err = 0.0379018796267 and h = 1
+
+err = 0.0113217526937 and h = 0.1
+
+err = 0.00123757744292 and h = 0.01
+
+err = 0.000124875078111 and h = 0.001
+
+err = 1.24987502381e-05 and h = 0.0001
+
+err = 1.24998572565e-06 and h = 1e-05
+
+err = 1.25015238495e-07 and h = 1e-06
+
+err = 1.2290593987e-08 and h = 1e-07
+
+err = 3.03873554097e-09 and h = 1e-08
+
+err = 4.13701853885e-08 and h = 1e-09
+
