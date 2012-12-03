@@ -1,0 +1,107 @@
+# Schroeder 7.6.8
+# The coupled equations
+def dx(y):
+    return y
+
+def dy(x,y):
+    return -x - 2*y
+
+# The initial conditions
+x0 = 2.
+y0 = -1.
+
+# Numerical parameters
+N = 4
+h = 0.25
+
+# Eulers method
+# w_(i+1) = w_i + h*f(t_i, w_i)
+# w = {"x":x, "y":y}
+
+def Euler(N, h, x0, y0):
+    # initialize lists, and initial conditions
+    x_soln, y_soln, t_soln = [], [], []
+    wi = {"x": x0, "y":y0}
+    string = ''
+
+    for i in range(N):
+        wi1_x = wi["x"] + h*dx(wi["y"])
+        wi1_y = wi["y"] + h*dy(wi["x"], wi["y"])
+        wi["x"] = wi1_x
+        wi["y"] = wi1_y
+        x_soln.append(wi1_x)
+        y_soln.append(wi1_y)
+        t_soln.append((N+1)*h)
+    for i in range(len(x_soln)):
+        string += "|t{j} = {t}\t|x{j} = {x}\t|y{j} = {y} \t|\n".format(j=i, t = t_soln[i], x = x_soln[i], y = y_soln[i])
+    return string
+
+print Euler(N, h, x0, y0)
+
+### OUTPUT ####
+|t0 = 1.25	|x0 = 1.75	|y0 = -1.0 	|
+|t1 = 1.25	|x1 = 1.5	|y1 = -0.9375 	|
+|t2 = 1.25	|x2 = 1.265625	|y2 = -0.84375 	|
+|t3 = 1.25	|x3 = 1.0546875	|y3 = -0.73828125 	|
+
+
+
+# Schroeder 7.8.9.a
+"""
+x''' + .5xx'' = 0
+
+Letting u0 = x, u1 = x', u2 = x'' we get
+
+u2' = -.5 * u0 * u2
+u1' = u2
+u0' = u1
+"""
+
+# coupled equations
+def du2(w):
+    return -.5 * w[0] * w[2]
+def du1(w):
+    return w[2]
+def du0(w):
+    return w[1]
+
+# IC's
+u0_0 = 0
+u1_0 = 0
+u2_0 = 1
+IC   = [0, 0, 1]
+
+# Numerical parameters
+N = 4
+h = 0.25
+
+# euler's method
+def euler(N, h, ic):
+    # initializations
+    wi = ic         
+    wi_1    = [0]*len(ic)    # to store the next step's data
+    x_solns = []    # to store solutions
+    string = ''     # for the formatted output
+    t_list = [ h*(i + 1) for i in range(N)]
+
+    for i in range(N):
+        wi_1[0] = wi[0] + h*du0(wi)
+        wi_1[1] = wi[1] + h*du1(wi)
+        wi_1[2] = wi[2] + h*du2(wi)
+        wi = wi_1
+        x_solns.append(tuple(wi_1))
+
+    for i in range(len(x_solns)):
+        string += "|t{j} = {t} \t|x\'\' = {x2} \t|x\' = {x1}|x = {x0} \t|\n".format(j=i, t=t_list[i], x2=x_solns[i][2], x1=x_solns[i][1], x0=x_solns[i][0])
+
+    return string
+
+foo = euler(N, h, IC)
+print foo
+
+### OUTPUT ###
+|t0 = 0.25 	|x'' = 1.0 	|x' = 0.25|x = 0.0 	|
+|t1 = 0.5 	|x'' = 0.9921875 	|x' = 0.5|x = 0.0625 	|
+|t2 = 0.75 	|x'' = 0.968933105469 	|x' = 0.748046875|x = 0.1875 	|
+|t3 = 1.0 	|x'' = 0.923573505133 	|x' = 0.990280151367|x = 0.37451171875 	|
+
